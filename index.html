@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOZZI</title>
+    <link rel="icon" href="img/logoIcon.png" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.15/fullpage.css"
+      integrity="sha512-joJLRX4chQYCQlk0R4FXEgZHqsWA1hf4e+C+QKyi8fnfDm8FlEsNAVo+ByQhD19BrgVZGSOJKAQZa5M5gXDtpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navBar">
+      <a href="index.html"
+        ><img class="logoPrincipal" src="img/logo.png" alt="Logo Principal"
+      /></a>
+      <ul class="itemNavBar">
+        <!-- <a href="#"><li class="item1">Sobre nosotros</li></a> -->
+        <a href="toursVirtuales.html"><li class="item2">Tour virtuales</li></a>
+        <a href="#"><li class="item3">Contactanos</li></a>
+      </ul>
+    </nav>
+    <div class="section section1">
+      <div data-aos="fade-right" data-aos-duration="1300" class="titulo1">
+        <h1>INNOVA</h1>
+        <p>
+          Impulsa tu negocio <br />
+          con nuestras fortalezas tecnológicas.
+        </p>
+      </div>
+      <div class="img1" data-aos="fade-in" data-aos-duration="1300">
+        <img src="img/imgPrincipal.png" alt="imgPrincipal" />
+      </div>
+      <div class="btn1">
+        <button class="btn">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+    <!--***********************************************-->
+    <div class="section section2">
+      <div class="titulo2" data-aos="fade-in" data-aos-duration="1300">
+        <h2>PERSPECTIVA</h2>
+        <p>
+          Nuestros drones capturan imágenes aéreas impresionantes, <br />
+          ideales para publicidad y fotografía.
+        </p>
+      </div>
+      <div class="video" data-aos="fade-right" data-aos-duration="1300">
+        <video class="video1" controls src="img/videoDrone.mp4"></video>
+      </div>
+    </div>
+    <!--***********************************************-->
+    <div class="section section3">
+      <div class="titulo3" data-aos="fade-in" data-aos-duration="1300">
+        <h2>DISEÑO</h2>
+        <p>
+          Mejora tu presencia en línea con nuestras profile pages <br />
+          para que tus clientes accedan a tus redes desde un solo lugar!
+        </p>
+      </div>
+      <!--slide-->
+      <div
+        class="ContainerCenter"
+        data-aos="fade-left"
+        data-aos-duration="1300"
+      >
+        <!-- Radio Seleccionar -->
+        <input type="radio" name="Carrusel" id="Slider1" checked />
+        <input type="radio" name="Carrusel" id="Slider2" />
+        <input type="radio" name="Carrusel" id="Slider3" />
+
+        <div class="Carrusels">
+          <!-- Imagen contenido -->
+          <div class="Carrusel"></div>
+          <div class="Carrusel"></div>
+          <div class="Carrusel"></div>
+
+          <!-- Flechas a la izquierda por cada imagen -->
+          <label for="Slider3" class="ArrowLeft Arrow1"
+            ><i class="fa-solid fa-arrow-left"></i
+          ></label>
+          <label for="Slider1" class="ArrowLeft Arrow2"
+            ><i class="fa-solid fa-arrow-left"></i
+          ></label>
+          <label for="Slider2" class="ArrowLeft Arrow3"
+            ><i class="fa-solid fa-arrow-left"></i
+          ></label>
+
+          <!-- Flechas a la derecha por cada imagen -->
+          <label for="Slider2" class="ArrowRight Arrow1"
+            ><i class="fa-solid fa-arrow-right"></i
+          ></label>
+          <label for="Slider3" class="ArrowRight Arrow2"
+            ><i class="fa-solid fa-arrow-right"></i
+          ></label>
+          <label for="Slider1" class="ArrowRight Arrow3"
+            ><i class="fa-solid fa-arrow-right"></i
+          ></label>
+        </div>
+
+        <!-- Selector circulos inferiores colgantes -->
+        <div class="Selectors">
+          <label for="Slider1" class="Selector"></label>
+          <label for="Slider2" class="Selector"></label>
+          <label for="Slider3" class="Selector"></label>
+        </div>
+      </div>
+    </div>
+    <!--***********************************************-->
+    <div class="section section4">
+      <div class="360" data-aos="fade-right" data-aos-duration="1300">
+        <img class="img360" src="img/360.png" alt="" />
+      </div>
+      <div class="titulo4" data-aos="fade-in" data-aos-duration="1300">
+        <h2>360</h2>
+        <p>
+          Recorré las propiedades más increíbles <br />
+          desde la comodiad de tu hogar.
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a href="https://www.instagram.com/bozzi.uy/" target="_blank"
+        ><li class="redSocial"><i class="fa-brands fa-instagram"></i></li
+      ></a>
+      <a href="https://www.tiktok.com/@bozzi.uy" target="_blank"
+        ><li class="redSocial"><i class="fa-brands fa-tiktok"></i></li
+      ></a>
+      <a href="#"
+        ><li class="redSocial"><i class="fa-brands fa-whatsapp"></i></li
+      ></a>
+    </footer>
+    <!--***********************************************-->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer src="js/index.js"></script>
+  </body>
+</html>
