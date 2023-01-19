@@ -28,6 +28,9 @@ body {
     "section3 section3"
     "section4 section4"
     "footer footer";
+  @include mobile {
+    overflow-x: hidden;
+  }
 }
 
 .navBar {
@@ -37,7 +40,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 40px;
+  // padding-right: 10px;
   font-size: 25px;
   position: fixed;
   z-index: 1;
@@ -69,15 +72,16 @@ body {
         }
       }
     }
-  }
-  .btnH {
-    cursor: pointer;
-    font-size: 24px;
-    visibility: hidden;
-    @include mobile {
-      visibility: visible;
-      background-color: rgba(0, 0, 0, 0);
-      border-color: rgba(0, 0, 0, 0);
+    .btnH {
+      cursor: pointer;
+      font-size: 24px;
+      visibility: hidden;
+      @include mobile {
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0);
+        border-color: rgba(0, 0, 0, 0);
+        padding-right: 40px;
+      }
     }
   }
 }

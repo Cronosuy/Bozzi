@@ -17,6 +17,11 @@ body {
   grid-template-rows: 6, 1fr;
   grid-template-areas: "navBar navBar" "section1 section1" "section2 section2" "section3 section3" "section4 section4" "footer footer";
 }
+@media screen and (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
+}
 
 .navBar {
   grid-area: navBar;
@@ -25,7 +30,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 40px;
   font-size: 25px;
   position: fixed;
   z-index: 1;
@@ -65,16 +69,17 @@ body {
 .navBar .itemNavBar a li:hover {
   color: aquamarine;
 }
-.navBar .btnH {
+.navBar .itemNavBar .btnH {
   cursor: pointer;
   font-size: 24px;
   visibility: hidden;
 }
 @media screen and (max-width: 480px) {
-  .navBar .btnH {
+  .navBar .itemNavBar .btnH {
     visibility: visible;
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
+    padding-right: 40px;
   }
 }
 
