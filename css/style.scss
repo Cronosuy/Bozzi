@@ -77,6 +77,7 @@ body {
       font-size: 24px;
       visibility: hidden;
       @include mobile {
+        color: whitesmoke;
         visibility: visible;
         background-color: rgba(0, 0, 0, 0);
         border-color: rgba(0, 0, 0, 0);
@@ -457,15 +458,18 @@ input {
   background-color: #999999;
 }
 
-/**** PROXIMAMENTE PAGE *****/
+/**** TOURS VIRTUALES PAGE *****/
 .container {
   height: 94vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mobile {
+    height: 84vh;
+    overflow: hidden;
+  }
 }
 .proximamente {
-  grid-area: proximamente;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -481,6 +485,11 @@ input {
   .imgGif {
     height: 400px;
     width: 400px;
+  }
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
@@ -521,4 +530,70 @@ input {
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+}
+
+/**** CURSOS PAGE *****/
+.sectionCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 94vh;
+  @include mobile {
+    height: 100%;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "card1 card2 card3 card4";
+    gap: 100px;
+    color: whitesmoke;
+    @include mobile {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 4, 1fr;
+      grid-template-areas: "card1" "card2" "card3" "card4";
+      align-items: center;
+      justify-items: center;
+      padding-bottom: 20px;
+      gap: 20px;
+    }
+    .card1 {
+      grid-area: card1;
+    }
+    .card2 {
+      grid-area: card2;
+    }
+    .card3 {
+      grid-area: card3;
+    }
+    .card {
+      grid-area: card4;
+    }
+    .imgCurso {
+      height: 100%;
+      width: 100%;
+    }
+    .card1,
+    .card2,
+    .card3,
+    .card4 {
+      height: 400px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      p {
+        text-align: justify;
+      }
+    }
+    .btnCurso {
+      cursor: pointer;
+      width: 100%;
+      background-color: green;
+    }
+  }
 }

@@ -76,6 +76,7 @@ body {
 }
 @media screen and (max-width: 480px) {
   .navBar .itemNavBar .btnH {
+    color: whitesmoke;
     visibility: visible;
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(0, 0, 0, 0);
@@ -510,16 +511,21 @@ input {
   background-color: #999999;
 }
 
-/**** PROXIMAMENTE PAGE *****/
+/**** TOURS VIRTUALES PAGE *****/
 .container {
   height: 94vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width: 480px) {
+  .container {
+    height: 84vh;
+    overflow: hidden;
+  }
+}
 
 .proximamente {
-  grid-area: proximamente;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -538,6 +544,13 @@ input {
 .proximamente .imgGif {
   height: 400px;
   width: 400px;
+}
+@media screen and (max-width: 480px) {
+  .proximamente {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 /* MENU HAMBURGUESA */
@@ -576,4 +589,76 @@ input {
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+}
+
+/**** CURSOS PAGE *****/
+.sectionCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 94vh;
+}
+@media screen and (max-width: 480px) {
+  .sectionCards {
+    height: 100%;
+  }
+}
+.sectionCards .cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "card1 card2 card3 card4";
+  gap: 100px;
+  color: whitesmoke;
+}
+@media screen and (max-width: 480px) {
+  .sectionCards .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4, 1fr;
+    grid-template-areas: "card1" "card2" "card3" "card4";
+    align-items: center;
+    justify-items: center;
+    padding-bottom: 20px;
+    gap: 20px;
+  }
+}
+.sectionCards .cards .card1 {
+  grid-area: card1;
+}
+.sectionCards .cards .card2 {
+  grid-area: card2;
+}
+.sectionCards .cards .card3 {
+  grid-area: card3;
+}
+.sectionCards .cards .card {
+  grid-area: card4;
+}
+.sectionCards .cards .imgCurso {
+  height: 100%;
+  width: 100%;
+}
+.sectionCards .cards .card1,
+.sectionCards .cards .card2,
+.sectionCards .cards .card3,
+.sectionCards .cards .card4 {
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.sectionCards .cards .card1 p,
+.sectionCards .cards .card2 p,
+.sectionCards .cards .card3 p,
+.sectionCards .cards .card4 p {
+  text-align: justify;
+}
+.sectionCards .cards .btnCurso {
+  cursor: pointer;
+  width: 100%;
+  background-color: green;
 }/*# sourceMappingURL=style.css.map */
