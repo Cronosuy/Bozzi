@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tours Virtuales</title>
+    <link rel="icon" href="img/logoIcon.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -22,46 +23,97 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <nav class="navBar">
-      <a href="index.html"
-        ><img class="logoPrincipal" src="img/logo.png" alt="Logo Principal"
-      /></a>
-      <ul class="itemNavBar">
-        <a href="index.html"><li class="item1">Sobre nosotros</li></a>
-        <a href="cursos.html"><li class="item2">Cursos</li></a>
-        <a href="#"><li class="item3">Contactanos</li></a>
-        <button id="boton-modal-centro" class="btnH">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </ul>
-    </nav>
-    <div class="container">
-      <div class="proximamente">
-        <h2>Próximamente</h2>
-        <img class="imgGif" src="img/logoGif.gif" alt="logoGif" />
-      </div>
-    </div>
+    <img class="objeto3d" src="img/objeto3d.png" alt="" />
+    <img class="objeto3d2" src="img/objeto3d.png" alt="" />
+    <img class="objeto3d3" src="img/objeto3d.png" alt="" />
     <!-- MENU HAMBURGUESA -->
-    <div class="modal-centro" id="modal-centro">
-      <a href="index.html"><li class="item1">Sobre Nosotros</li></a>
-      <a href="cursos.html"><li class="item2">Cursos</li></a>
-      <a href="#"><li class="item3">Contactanos</li></a>
-      <button class="btn cerrar" id="cerrar-modal-centro">
-        <i class="fa-solid fa-x"></i>
-      </button>
-    </div>
-    <footer class="footer">
-      <a href="https://www.instagram.com/bozzi.uy/" target="_blank"
-        ><li class="redSocial"><i class="fa-brands fa-instagram"></i></li
-      ></a>
-      <a href="https://www.tiktok.com/@bozzi.uy" target="_blank"
-        ><li class="redSocial"><i class="fa-brands fa-tiktok"></i></li
-      ></a>
-      <a href="#"
-        ><li class="redSocial"><i class="fa-brands fa-whatsapp"></i></li
-      ></a>
-    </footer>
+    <label class="menuH">
+      <input type="checkbox" />
+      <span class="menu">
+        <span class="hamburger"></span>
+      </span>
+      <ul>
+        <li>
+          <a href="index.html">Sobre nosotros</a>
+        </li>
+        <li>
+          <a href="cursos.html">Cursos</a>
+        </li>
+        <li>
+          <a href="contacto.html">Contacto</a>
+        </li>
+        <!-- <li>
+          <a href="#">Master</a>
+        </li> -->
+      </ul>
+    </label>
+    <div class="body2">
+      <nav class="navBar">
+        <a href="index.html"
+          ><img class="logoPrincipal" src="img/logo.png" alt="Logo Principal"
+        /></a>
+        <ul class="itemNavBar">
+          <a href="index.html"><li class="item1">Sobre nosotros</li></a>
+          <a href="cursos.html"><li class="item2">Cursos</li></a>
+          <a href="contacto.html"><li class="item3">Contactanos</li></a>
+        </ul>
+      </nav>
 
+      <section class="sectionTours">
+        <div class="titulo">
+          <h2 class="tituloTours">
+            <span>DESTACA</span> TUS PROPIEDADES INNOVANDO
+          </h2>
+          <p>Automatiza tareas y administra con eficiencia</p>
+        </div>
+        <div class="tour">
+          <iframe
+            class="tour360"
+            src="https://www.theasys.io/viewer/moiDUaNbjjSgSVYMkNHBKdEYpq9QnG"
+            allowfullscreen="true"
+            frameborder="0"
+            scrolling="no"
+            allow="vr;gyroscope;accelerometer"
+          ></iframe>
+        </div>
+        <div class="infoTours">
+          <h3>
+            QUE TUS CLIENTES TENGAN UNA
+            <span>EXPERIENCIA INMERSIVA Y DETALLADA</span> ANTES DE VISITAR LA
+            PROPIEDAD
+          </h3>
+          <p>
+            Ahorra tiempo y esfuerzo, que tus potenciales clientes puedan ver en
+            detalle y conocer su espacio y características de manera más clara.
+          </p>
+          <p>
+            Además, los tours virtuales te ayudaran a aumentar la visibilidad de
+            tus propiedades y a destacarlas. Al estar disponibles en línea las
+            24 horas del día, los clientes pueden verlas desde la comodidad de
+            su hogar y en cualquier momento.
+          </p>
+          <p>
+            No solo eso, también ofrecen una experiencia de visualización más
+            realista y atractiva que una simple galería de imágenes o un video.
+            Con un tour virtual, los clientes pueden explorar cada habitación y
+            ángulo de la propiedad de manera interactiva, lo que les permite
+            tener una comprensión mucho más completa de lo que están comprando.
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <a href="https://www.instagram.com/bozzi.uy/" target="_blank"
+          ><li class="redSocial"><i class="fa-brands fa-instagram"></i></li
+        ></a>
+        <a href="https://www.tiktok.com/@bozzi.uy" target="_blank"
+          ><li class="redSocial"><i class="fa-brands fa-tiktok"></i></li
+        ></a>
+        <a href="#"
+          ><li class="redSocial"><i class="fa-brands fa-whatsapp"></i></li
+        ></a>
+      </footer>
+    </div>
     <!--***********************************************-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

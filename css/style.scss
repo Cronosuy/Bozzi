@@ -5,6 +5,11 @@
     @content;
   }
 }
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
 
 * {
   margin: 0;
@@ -18,6 +23,111 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgb(25, 25, 25);
+  overflow-x: hidden;
+  .menuH {
+    visibility: hidden;
+  }
+  @include mobile {
+    overflow-x: hidden;
+    /* MENU HAMBURGUESA */
+    .menuH {
+      visibility: visible;
+      .menu {
+        position: absolute;
+        right: -115px;
+        top: -115px;
+        z-index: 100;
+        width: 200px;
+        height: 200px;
+        background-color: hsl(0, 0%, 0%);
+        border-radius: 50% 50% 50% 50%;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff;
+        cursor: pointer;
+      }
+      .hamburger {
+        position: absolute;
+        top: 150px;
+        left: 40px;
+        width: 30px;
+        height: 2px;
+        background: #fff;
+        display: block;
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+      }
+      .hamburger:after,
+      .hamburger:before {
+        -webkit-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+      }
+      .hamburger:before {
+        top: -10px;
+      }
+      .hamburger:after {
+        bottom: -10px;
+      }
+      input {
+        display: none;
+      }
+      input:checked + .menu {
+        box-shadow: 0 0 0 100vw hsl(0, 0%, 0%), 0 0 0 150vh hsl(0, 0%, 0%);
+        border-radius: 0;
+      }
+      input:checked + .menu .hamburger {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+      input:checked + .menu .hamburger:after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        bottom: 0;
+      }
+      input:checked + .menu .hamburger:before {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        top: 0;
+      }
+      input:checked + .menu + ul {
+        opacity: 1;
+      }
+      ul {
+        z-index: 200;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        -webkit-transition: 0.25s 0s ease-in-out;
+        transition: 0.25s 0s ease-in-out;
+        list-style: none;
+        font-size: 30px;
+        text-align: center;
+        li:hover {
+          transform: scale(1.2);
+        }
+      }
+      a {
+        margin-bottom: 1em;
+        display: block;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.body1 {
   display: grid;
   grid-template-columns: 2fr;
   grid-template-rows: 6, 1fr;
@@ -43,12 +153,14 @@ body {
   // padding-right: 10px;
   font-size: 25px;
   position: fixed;
+  top: 0;
   z-index: 1;
+  padding-right: 20px;
 
   @include mobile {
     font-size: 12px;
     height: 80px;
-    position: sticky;
+    position: static;
   }
   .logoPrincipal {
     width: 150px;
@@ -100,6 +212,9 @@ body {
     "titulo1  img1 img1"
     "titulo1  img1 img1"
     "btn1  btn1 btn1";
+  @include tablet {
+    height: 700px;
+  }
   @include mobile {
     height: 700px;
     display: grid;
@@ -118,8 +233,13 @@ body {
   align-items: flex-start;
   padding-right: 100px;
   font-size: 30px;
+  gap: 20px;
   grid-area: titulo1;
-
+  max-width: 500px;
+  @include tablet {
+    font-size: 24px;
+    padding-left: 20px;
+  }
   @include mobile {
     font-size: 18px;
     display: flex;
@@ -133,6 +253,10 @@ body {
   img {
     height: 100%;
     width: 600px;
+    @include tablet {
+      width: 380px;
+      padding-right: 20px;
+    }
     @include mobile {
       width: 280px;
     }
@@ -166,22 +290,38 @@ body {
   justify-content: center;
   align-items: center;
   gap: 30px;
+
+  @include tablet {
+    height: 600px;
+  }
   .titulo2 {
     grid-area: titulo2;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
     font-size: 30px;
+    max-width: 500px;
+    @include tablet {
+      font-size: 24px;
+      padding-right: 20px;
+    }
     @include mobile {
       font-size: 18px;
       padding-left: 30px;
+      align-items: flex-start;
     }
   }
   .video {
     grid-area: video;
     .video1 {
       height: 100%;
-      width: 1000px;
+      width: 900px;
+      @include tablet {
+        height: 100%;
+        width: 450px;
+        padding-left: 10px;
+      }
       @include mobile {
         height: 100%;
         width: 350px;
@@ -205,17 +345,27 @@ body {
   align-items: center;
   color: whitesmoke;
   gap: 100px;
+  @include tablet {
+    height: 600px;
+  }
   @include mobile {
     display: flex;
     flex-direction: column;
     height: 700px;
+    gap: 20px;
   }
   .titulo3 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 20px;
     font-size: 30px;
+    max-width: 500px;
+    @include tablet {
+      font-size: 24px;
+      padding-left: 20px;
+    }
     @include mobile {
       font-size: 18px;
       padding-left: 30px;
@@ -230,7 +380,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+
   @include mobile {
     height: 600px;
     display: grid;
@@ -238,24 +388,36 @@ body {
     grid-template-rows: 2fr;
     grid-template-areas: "titulo4" "img360";
     justify-items: center;
-    align-items: center;
+    align-items: flex-end;
+    gap: 30px;
+    padding-bottom: 40px;
   }
   .titulo4 {
     grid-area: titulo4;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
+    gap: 20px;
     font-size: 30px;
+    max-width: 500px;
+    @include tablet {
+      font-size: 24px;
+      padding-right: 20px;
+    }
     @include mobile {
-      display: block;
+      align-items: flex-start;
       font-size: 18px;
       padding-left: 30px;
     }
   }
   .img360 {
     grid-area: img360;
-    width: 700px;
+    width: 800px;
+    @include tablet {
+      width: 550px;
+      padding-left: 20px;
+    }
     @include mobile {
       width: 350px;
       padding-left: 20px;
@@ -271,10 +433,21 @@ footer {
   gap: 20px;
   padding: 0 40px 20px 0;
   z-index: 1;
-  @include mobile {
+  position: fixed;
+  bottom: 0;
+  @include tablet {
+    position: static;
+    bottom: 0;
     display: flex;
     justify-content: center;
-    padding: 0 0 20px 0;
+    padding: 20px 0 20px 0;
+  }
+  @include mobile {
+    position: static;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 20px 0;
   }
   a {
     text-decoration: none;
@@ -317,6 +490,12 @@ label {
   display: flex;
   align-items: center;
   flex-direction: column;
+  @include tablet {
+    padding-right: 20px;
+  }
+  @include mobile {
+    padding-left: 20px;
+  }
 }
 /* Input */
 input {
@@ -329,6 +508,10 @@ input {
   width: 800px;
   position: relative;
   overflow-x: hidden;
+  @include tablet {
+    height: 300px;
+    width: 450px;
+  }
   @include mobile {
     height: 300px;
     width: 350px;
@@ -459,8 +642,145 @@ input {
 }
 
 /**** TOURS VIRTUALES PAGE *****/
+.body2 {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 3, 1fr;
+  grid-template-areas:
+    "navBar navBar"
+    "sectionTours sectionTours"
+    "footer footer";
+  justify-items: center;
+  .footer {
+    @include mobile {
+      position: static;
+    }
+  }
+  @include mobile {
+    height: 150vh;
+  }
+}
+
+.objeto3d {
+  position: absolute;
+  width: 100px;
+  left: 0;
+  bottom: 25px;
+  @include mobile {
+    visibility: hidden;
+  }
+}
+
+.objeto3d2 {
+  position: absolute;
+  width: 150px;
+  right: 0;
+  top: 60px;
+  @include mobile {
+    width: 150px;
+    top: 40px;
+  }
+}
+
+.objeto3d3 {
+  position: absolute;
+  right: 0;
+  top: 150px;
+  width: 100px;
+  @include mobile {
+    width: 100px;
+    top: 130px;
+  }
+}
+
+.sectionTours {
+  grid-area: sectionTours;
+  display: grid;
+  grid-template-columns: 2, 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "titulo infoTours"
+    "tour infoTours";
+  gap: 20px;
+  width: 1450px;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.479);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.6px);
+  -webkit-backdrop-filter: blur(3.6px);
+  border: 0.3px solid rgba(10, 10, 10, 0.249);
+  justify-items: center;
+  align-items: center;
+
+  @include mobile {
+    height: 1200px;
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+  .titulo {
+    grid-area: titulo;
+    color: whitesmoke;
+    font-size: 28px;
+    height: 50px;
+    span {
+      color: rgb(103, 8, 103);
+    }
+
+    @include mobile {
+      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      max-width: 350px;
+      gap: 10px;
+    }
+  }
+  .tour {
+    grid-area: tour;
+    padding-bottom: 20px;
+
+    @include mobile {
+      padding-top: 40px;
+    }
+    .tour360 {
+      border-radius: 10px;
+      height: 400px;
+      width: 700px;
+
+      @include mobile {
+        width: 350px;
+      }
+    }
+  }
+  .infoTours {
+    grid-area: infoTours;
+    max-width: 600px;
+    color: whitesmoke;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    span {
+      color: rgb(103, 8, 103);
+    }
+
+    @include mobile {
+      font-size: 18px;
+      max-width: 350px;
+    }
+  }
+}
+
+/********* FIN PAGE TOURS ********/
+
 .container {
-  height: 94vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -491,45 +811,6 @@ input {
     flex-direction: column;
     justify-content: center;
   }
-}
-
-/* MENU HAMBURGUESA */
-
-.modal-centro {
-  position: fixed;
-  height: 100vh;
-  width: 50vh;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 200px;
-  padding-bottom: 50px;
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: 0.3s;
-  box-shadow: 0 0 0 500vmax rgba(0, 0, 0, 0.5);
-  a {
-    text-decoration: none;
-    li {
-      list-style: none;
-      font-size: 30px;
-      color: whitesmoke;
-    }
-  }
-  .cerrar {
-    cursor: pointer;
-    color: rgb(134, 0, 134);
-  }
-}
-
-.modal-centro.active {
-  transform: scale(1);
-  opacity: 1;
-  visibility: visible;
 }
 
 /**** CURSOS PAGE *****/

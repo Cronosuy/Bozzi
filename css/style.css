@@ -12,13 +12,111 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgb(25, 25, 25);
+  overflow-x: hidden;
+}
+body .menuH {
+  visibility: hidden;
+}
+@media screen and (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+    /* MENU HAMBURGUESA */
+  }
+  body .menuH {
+    visibility: visible;
+  }
+  body .menuH .menu {
+    position: absolute;
+    right: -115px;
+    top: -115px;
+    z-index: 100;
+    width: 200px;
+    height: 200px;
+    background-color: hsl(0deg, 0%, 0%);
+    border-radius: 50% 50% 50% 50%;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff;
+    cursor: pointer;
+  }
+  body .menuH .hamburger {
+    position: absolute;
+    top: 150px;
+    left: 40px;
+    width: 30px;
+    height: 2px;
+    background: #fff;
+    display: block;
+    transform-origin: center;
+    transition: 0.5s ease-in-out;
+  }
+  body .menuH .hamburger:after,
+body .menuH .hamburger:before {
+    transition: 0.5s ease-in-out;
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+  body .menuH .hamburger:before {
+    top: -10px;
+  }
+  body .menuH .hamburger:after {
+    bottom: -10px;
+  }
+  body .menuH input {
+    display: none;
+  }
+  body .menuH input:checked + .menu {
+    box-shadow: 0 0 0 100vw hsl(0deg, 0%, 0%), 0 0 0 150vh hsl(0deg, 0%, 0%);
+    border-radius: 0;
+  }
+  body .menuH input:checked + .menu .hamburger {
+    transform: rotate(45deg);
+  }
+  body .menuH input:checked + .menu .hamburger:after {
+    transform: rotate(90deg);
+    bottom: 0;
+  }
+  body .menuH input:checked + .menu .hamburger:before {
+    transform: rotate(90deg);
+    top: 0;
+  }
+  body .menuH input:checked + .menu + ul {
+    opacity: 1;
+  }
+  body .menuH ul {
+    z-index: 200;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.25s 0s ease-in-out;
+    list-style: none;
+    font-size: 30px;
+    text-align: center;
+  }
+  body .menuH ul li:hover {
+    transform: scale(1.2);
+  }
+  body .menuH a {
+    margin-bottom: 1em;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.body1 {
   display: grid;
   grid-template-columns: 2fr;
   grid-template-rows: 6, 1fr;
   grid-template-areas: "navBar navBar" "section1 section1" "section2 section2" "section3 section3" "section4 section4" "footer footer";
 }
 @media screen and (max-width: 480px) {
-  body {
+  .body1 {
     overflow-x: hidden;
   }
 }
@@ -32,14 +130,15 @@ body {
   align-items: center;
   font-size: 25px;
   position: fixed;
+  top: 0;
   z-index: 1;
+  padding-right: 20px;
 }
 @media screen and (max-width: 480px) {
   .navBar {
     font-size: 12px;
     height: 80px;
-    position: -webkit-sticky;
-    position: sticky;
+    position: static;
   }
 }
 .navBar .logoPrincipal {
@@ -95,6 +194,11 @@ body {
   grid-template-rows: 3, 1fr;
   grid-template-areas: "titulo1  img1 img1" "titulo1  img1 img1" "btn1  btn1 btn1";
 }
+@media screen and (max-width: 768px) {
+  .section1 {
+    height: 700px;
+  }
+}
 @media screen and (max-width: 480px) {
   .section1 {
     height: 700px;
@@ -112,7 +216,15 @@ body {
   align-items: flex-start;
   padding-right: 100px;
   font-size: 30px;
+  gap: 20px;
   grid-area: titulo1;
+  max-width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .titulo1 {
+    font-size: 24px;
+    padding-left: 20px;
+  }
 }
 @media screen and (max-width: 480px) {
   .titulo1 {
@@ -131,6 +243,12 @@ body {
 .img1 img {
   height: 100%;
   width: 600px;
+}
+@media screen and (max-width: 768px) {
+  .img1 img {
+    width: 380px;
+    padding-right: 20px;
+  }
 }
 @media screen and (max-width: 480px) {
   .img1 img {
@@ -169,17 +287,31 @@ body {
   align-items: center;
   gap: 30px;
 }
+@media screen and (max-width: 768px) {
+  .section2 {
+    height: 600px;
+  }
+}
 .section2 .titulo2 {
   grid-area: titulo2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 20px;
   font-size: 30px;
+  max-width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .section2 .titulo2 {
+    font-size: 24px;
+    padding-right: 20px;
+  }
 }
 @media screen and (max-width: 480px) {
   .section2 .titulo2 {
     font-size: 18px;
     padding-left: 30px;
+    align-items: flex-start;
   }
 }
 .section2 .video {
@@ -187,7 +319,14 @@ body {
 }
 .section2 .video .video1 {
   height: 100%;
-  width: 1000px;
+  width: 900px;
+}
+@media screen and (max-width: 768px) {
+  .section2 .video .video1 {
+    height: 100%;
+    width: 450px;
+    padding-left: 10px;
+  }
 }
 @media screen and (max-width: 480px) {
   .section2 .video .video1 {
@@ -214,11 +353,17 @@ body {
   color: whitesmoke;
   gap: 100px;
 }
+@media screen and (max-width: 768px) {
+  .section3 {
+    height: 600px;
+  }
+}
 @media screen and (max-width: 480px) {
   .section3 {
     display: flex;
     flex-direction: column;
     height: 700px;
+    gap: 20px;
   }
 }
 .section3 .titulo3 {
@@ -226,7 +371,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 20px;
   font-size: 30px;
+  max-width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .section3 .titulo3 {
+    font-size: 24px;
+    padding-left: 20px;
+  }
 }
 @media screen and (max-width: 480px) {
   .section3 .titulo3 {
@@ -242,7 +395,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
 }
 @media screen and (max-width: 480px) {
   .section4 {
@@ -252,7 +404,9 @@ body {
     grid-template-rows: 2fr;
     grid-template-areas: "titulo4" "img360";
     justify-items: center;
-    align-items: center;
+    align-items: flex-end;
+    gap: 30px;
+    padding-bottom: 40px;
   }
 }
 .section4 .titulo4 {
@@ -260,19 +414,33 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
+  gap: 20px;
   font-size: 30px;
+  max-width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .section4 .titulo4 {
+    font-size: 24px;
+    padding-right: 20px;
+  }
 }
 @media screen and (max-width: 480px) {
   .section4 .titulo4 {
-    display: block;
+    align-items: flex-start;
     font-size: 18px;
     padding-left: 30px;
   }
 }
 .section4 .img360 {
   grid-area: img360;
-  width: 700px;
+  width: 800px;
+}
+@media screen and (max-width: 768px) {
+  .section4 .img360 {
+    width: 550px;
+    padding-left: 20px;
+  }
 }
 @media screen and (max-width: 480px) {
   .section4 .img360 {
@@ -289,12 +457,25 @@ footer {
   gap: 20px;
   padding: 0 40px 20px 0;
   z-index: 1;
+  position: fixed;
+  bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  footer {
+    position: static;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 20px 0;
+  }
 }
 @media screen and (max-width: 480px) {
   footer {
+    position: static;
+    bottom: 0;
     display: flex;
     justify-content: center;
-    padding: 0 0 20px 0;
+    padding: 20px 0 20px 0;
   }
 }
 footer a {
@@ -339,6 +520,16 @@ label {
   align-items: center;
   flex-direction: column;
 }
+@media screen and (max-width: 768px) {
+  .ContainerCenter {
+    padding-right: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .ContainerCenter {
+    padding-left: 20px;
+  }
+}
 
 /* Input */
 input {
@@ -351,6 +542,12 @@ input {
   width: 800px;
   position: relative;
   overflow-x: hidden;
+}
+@media screen and (max-width: 768px) {
+  .Carrusels {
+    height: 300px;
+    width: 450px;
+  }
 }
 @media screen and (max-width: 480px) {
   .Carrusels {
@@ -512,8 +709,151 @@ input {
 }
 
 /**** TOURS VIRTUALES PAGE *****/
+.body2 {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 3, 1fr;
+  grid-template-areas: "navBar navBar" "sectionTours sectionTours" "footer footer";
+  justify-items: center;
+}
+@media screen and (max-width: 480px) {
+  .body2 .footer {
+    position: static;
+  }
+}
+@media screen and (max-width: 480px) {
+  .body2 {
+    height: 150vh;
+  }
+}
+
+.objeto3d {
+  position: absolute;
+  width: 100px;
+  left: 0;
+  bottom: 25px;
+}
+@media screen and (max-width: 480px) {
+  .objeto3d {
+    visibility: hidden;
+  }
+}
+
+.objeto3d2 {
+  position: absolute;
+  width: 150px;
+  right: 0;
+  top: 60px;
+}
+@media screen and (max-width: 480px) {
+  .objeto3d2 {
+    width: 150px;
+    top: 40px;
+  }
+}
+
+.objeto3d3 {
+  position: absolute;
+  right: 0;
+  top: 150px;
+  width: 100px;
+}
+@media screen and (max-width: 480px) {
+  .objeto3d3 {
+    width: 100px;
+    top: 130px;
+  }
+}
+
+.sectionTours {
+  grid-area: sectionTours;
+  display: grid;
+  grid-template-columns: 2, 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "titulo infoTours" "tour infoTours";
+  gap: 20px;
+  width: 1450px;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.479);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.6px);
+  -webkit-backdrop-filter: blur(3.6px);
+  border: 0.3px solid rgba(10, 10, 10, 0.249);
+  justify-items: center;
+  align-items: center;
+}
+@media screen and (max-width: 480px) {
+  .sectionTours {
+    height: 1200px;
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+}
+.sectionTours .titulo {
+  grid-area: titulo;
+  color: whitesmoke;
+  font-size: 28px;
+  height: 50px;
+}
+.sectionTours .titulo span {
+  color: rgb(103, 8, 103);
+}
+@media screen and (max-width: 480px) {
+  .sectionTours .titulo {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    gap: 10px;
+  }
+}
+.sectionTours .tour {
+  grid-area: tour;
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 480px) {
+  .sectionTours .tour {
+    padding-top: 40px;
+  }
+}
+.sectionTours .tour .tour360 {
+  border-radius: 10px;
+  height: 400px;
+  width: 700px;
+}
+@media screen and (max-width: 480px) {
+  .sectionTours .tour .tour360 {
+    width: 350px;
+  }
+}
+.sectionTours .infoTours {
+  grid-area: infoTours;
+  max-width: 600px;
+  color: whitesmoke;
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sectionTours .infoTours span {
+  color: rgb(103, 8, 103);
+}
+@media screen and (max-width: 480px) {
+  .sectionTours .infoTours {
+    font-size: 18px;
+    max-width: 350px;
+  }
+}
+
+/********* FIN PAGE TOURS ********/
 .container {
-  height: 94vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -551,44 +891,6 @@ input {
     flex-direction: column;
     justify-content: center;
   }
-}
-
-/* MENU HAMBURGUESA */
-.modal-centro {
-  position: fixed;
-  height: 100vh;
-  width: 50vh;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 200px;
-  padding-bottom: 50px;
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: 0.3s;
-  box-shadow: 0 0 0 500vmax rgba(0, 0, 0, 0.5);
-}
-.modal-centro a {
-  text-decoration: none;
-}
-.modal-centro a li {
-  list-style: none;
-  font-size: 30px;
-  color: whitesmoke;
-}
-.modal-centro .cerrar {
-  cursor: pointer;
-  color: rgb(134, 0, 134);
-}
-
-.modal-centro.active {
-  transform: scale(1);
-  opacity: 1;
-  visibility: visible;
 }
 
 /**** CURSOS PAGE *****/
